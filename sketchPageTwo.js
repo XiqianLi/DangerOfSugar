@@ -1,6 +1,6 @@
 let img;
 function preload() {
-    img = loadImage("/Users/xiqianli/Documents/school/MM621/P1/code_page1/pic.png");
+    img = loadImage("pic.png");
 }
 
 function setup() {
