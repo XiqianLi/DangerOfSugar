@@ -14,5 +14,5 @@ function setup() {
     noStroke();
     rect(windowWidth/2,0,windowWidth/2,windowHeight);
     triangle(windowWidth/2, windowHeight/2-50, windowWidth/2-60, windowHeight/2, windowWidth/2, windowHeight/2+50);
-    image(img,windowWidth/2+100,windowHeight/2-50)
+    image(img,100,100,500,500)
   }
