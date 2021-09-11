@@ -1,4 +1,6 @@
-let title = "Danger of Sugar"
+let title = "Danger of Sugar";
+let blue;
+let yellow;
 
 let content = {
     oneSubtitle:"What is added sugar",
@@ -10,30 +12,31 @@ let content = {
 
 }
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(1440, 900);
 
     let buttonOne = createButton("Sugar On Your Body");
     let buttonTwo = createButton("How Much Sugar in Your Snacks");
-    
 
-    buttonOne.position(150,600);
-    buttonOne.size(500,100);
-    buttonOne.mouseClicked(openLinkOne);
-    buttonOne.style("background-color", "ff555b");
-    buttonOne.style("color", "FFFFFF");
-    buttonOne.style("strokeWeight", "0");
-    buttonOne.style("font-family", "Comic Sans MS");
-    buttonOne.style("font-size", "36px");
+    buttonProperty(buttonOne,150,520,openLinkOne);
+    buttonProperty(buttonTwo,150,650,openLinkTwo);
 
-    buttonTwo.position(150,800);
-    buttonTwo.size(700,100);
-    buttonTwo.mouseClicked(openLinkTwo);
-    buttonTwo.style("background-color", "ff555b");
-    buttonTwo.style("color", "FFFFFF");
-    buttonTwo.style("strokeWeight", "0");
-    buttonTwo.style("font-family", "Comic Sans MS");
-    buttonTwo.style("font-size", "36px");
+    blue = color(156, 222, 228);
+    yellow = color(254,246,223);
+  
   }
+
+function buttonProperty(button,x,y,link) {
+  noStroke();
+  button.position(x,y);
+  button.size(400,80);
+  button.mouseClicked(link);
+  button.style("background-color", "ff555b");
+  button.style("color", "FFFFFF");
+  button.style("strokeWeight", "0");
+  button.style("font-family", "Comic Sans MS");
+  button.style("font-size", "24px");
+
+}
 
   function openLinkOne() {
       window.open("indexPageTwo.html")
@@ -44,29 +47,30 @@ function setup() {
 }
   
   function draw() {
-    background(254,246,223);
-    fill(156, 222, 228);
+    // blue = color(156, 222, 228);
+    // yellow = color(254,246,223);
+
+    background(yellow);
+    
+    fill(blue);
     noStroke();
-    rect(0,0,windowWidth/2,windowHeight);
-    triangle(windowWidth/2, windowHeight/2-50, windowWidth/2+60, windowHeight/2, windowWidth/2, windowHeight/2+50);
+    rect(0,0,720,900);
+    triangle(720, 400, 780, 450, 720, 500);
     
     fill(0);
     textSize(112);
     textFont("Helvetica");
-    text(title,150,200,600,400);
+    text(title,150,150,600,400);
 
     fill(0);
-    textSize(24);
+    textSize(18);
     textFont("Helvetica");
-    text(content.oneSubtitle,windowWidth/2+200,200,600,400);
-    text(content.one,windowWidth/2+200,250,600,400);
-    text(content.twoSubtitle,windowWidth/2+200,500,600,400);
-    text(content.two,windowWidth/2+200,550,600,400);
-    text(content.threeSubtitle,windowWidth/2+200,800,600,400);
-    text(content.three,windowWidth/2+200,850,600,400);
-
-
-
+    text(content.oneSubtitle,800,160,600,400);
+    text(content.one,800,200,600,400);
+    text(content.twoSubtitle,800,400,600,400);
+    text(content.two,800,440,600,400);
+    text(content.threeSubtitle,800,640,600,400);
+    text(content.three,800,680,600,400);
   }
 
 
