@@ -1,5 +1,4 @@
 let img;
-let d;
 let content = {
   brain:"When we are motivated to improve our diets, it’s usually because of food’s effect on our bodies: We want better digestion, body composition, or energy levels. But we often overlook our diet’s effect on our brains and vice versa. Once your brain receives a signal that sugar is on the way, its reward system lights up like 4th of July fireworks. As a result, it is remarkably addictive – even more so than cocaine.",
   skin:"Celebrity dermatologists are fond of saying that reducing your sugar intake can make you look younger and improve the overall appearance of your skin. Don’t dismiss this notion as a quasi-scientific myth that needs to be debunked. It’s well supported by scientific research.Sugar intake causes your insulin levels to spike (see 'Pancreas', below) which in turn prompts inflammation. Inflammation, among other things, produces enzymes that break down skin-supporting collagen and elastin in a process known as glycation. In this manner, glycation accelerates the effects of aging and exacerbates pre-existing conditions like acne and rosacea.",
@@ -11,71 +10,70 @@ let content = {
   kidneys:"If you have diabetes, too much sugar can lead to kidney damage. The kidneys play an important role in filtering your blood. Once blood sugar levels reach a certain amount, the kidneys start to release excess sugar into your urine. If left uncontrolled, diabetes can damage the kidneys, which prevents them from doing their job in filtering out waste in your blood. This can lead to kidney failure.",
   bodyWeight:"This probably isn’t news to you, but the more sugar you eat, the more you’ll weigh. Research shows that people who drink sugar-sweetened beverages tend to weigh more -- and be at higher risk for type 2 diabetes -- than those who don’t. One study even found that people who increased their sugar intake gained about 1.7 pounds in less than 2 months. Excess amounts of sugar can inflame fat cells causing them to release chemicals that increase weight."
 }
-let red;
+let bgRed;
 let redActive;
-let blue;
-let yellow;
+let bgBlue;
+let bgYellow;
 
-// brain = "When we are motivated to improve our diets, it’s usually because of food’s effect on our bodies: We want better digestion, body composition, or energy levels. But we often overlook our diet’s effect on our brains and vice versa. Once your brain receives a signal that sugar is on the way, its reward system lights up like 4th of July fireworks. As a result, it is remarkably addictive – even more so than cocaine."
+// preload image
 function preload() {
     img = loadImage("pic4.png");
 }
 
+// create canvas, draw background and titles on the left
 function setup() {
     createCanvas(1440, 900);
     background(254,246,223);
 
-    red = color(255, 85, 91);
-    blue = color(156, 222, 228);
-
+    bgRed = color(255, 85, 91);
+    bgBlue = color(156, 222, 228);
     redActive = color(255, 85, 91, 80);
-    yellow = color(254,246,223);
+    bgYellow = color(254,246,223);
 
-    fill(blue);
+    fill(bgBlue);
     noStroke();
     rect(600,0,900,900);
     triangle(600, 420, 560, 450, 600, 480);
 
     fill(0);
-    textSize(48);
+    textSize(64);
     textFont("Comic Sans MS");
     text("How Does",60,300);
     text("Too Much",60,400);
     text("Added Sugar",60,500);
-    text("Affect Your Body",60,600);
+    text("Affects",60,600);
+    text("Your Body",60,700);
 
+// create buttons and set properties
     let buttonOne = createButton("Reset");
-    let buttonTwo = createButton("Back To Homepage");
+    let buttonTwo = createButton("Back");
     buttonOne.mousePressed(setup);
 
-    buttonProperty(buttonOne,80,150,openLinkTwo);
-    buttonProperty(buttonTwo,320,150,openLinkOne);
+    buttonProperty(buttonOne,60,120,openLinkTwo);
+    buttonProperty(buttonTwo,320,120,openLinkOne);
   }
 
 function openLinkOne() {
-    window.open("indexPageOne.html")
+    window.open("indexPageOne.html","_self")
 }
 
 function openLinkTwo() {
-  window.open("indexPageTwo.html")
+  window.open("indexPageTwo.html","_self")
 }
-
 
 function buttonProperty(button,x,y,link) {
     button.position(x,y);
-    button.size(200,60);
+    button.size(160,60);
     button.mouseClicked(link);
-    button.style("background-color", red);
+    button.style("background-color", bgRed);
     button.style("color", "white");
     button.style("strokeWeight", "0");
     button.style("font-family", "Comic Sans MS");
     button.style("font-size", "18px");
 }
 
-  
+// draw bullet points
 function draw() {
-
-
   drawRedEllipse(700,100,"Brain");
   drawRedEllipse(700,250,"Skin");
   drawRedEllipse(700,400,"Liver");
@@ -87,13 +85,10 @@ function draw() {
   drawRedEllipse(1300,400,"Pancreas")
   drawRedEllipse(1300,550,"Joints")
   
-
   image(img,800,60,550,800)
-
-
-
 }
 
+// when mouse on click, highlight bullet points and create content
 function mouseClicked() {
   drawActive(700,100,"Brain",content.brain);
   drawActive(700,250,"Skin",content.skin);
@@ -105,27 +100,24 @@ function mouseClicked() {
   drawActive(1300,250,"Heart",content.heart);
   drawActive(1300,400,"Pancreas",content.pancreas);
   drawActive(1300,550,"Joint",content.joints);
-
 }
-
 
 
 function drawRedEllipse(x,y,i) {
   noStroke();
-  fill(red);
+  fill(bgRed);
   ellipse(x, y, 40);
 
   fill(12, 107, 166);
   textSize(18);
   textFont("Comic Sans MS");
   text(i,x+30,y+8)
-
 }
 
 function drawActive(x,y,title,content) {
   if (dist(mouseX, mouseY, x, y)<30) {
 
-    fill(blue);
+    fill(bgBlue);
     noStroke();
     rect(600,0,900,900);
     
@@ -133,7 +125,7 @@ function drawActive(x,y,title,content) {
     fill(redActive);
     ellipse(x, y, 60);
 
-    fill(yellow);
+    fill(bgYellow);
     rect(0,0,550,900);
     fill(0);
     textSize(64);
@@ -141,7 +133,7 @@ function drawActive(x,y,title,content) {
     text(title,80,300);
     textSize(18);
     textFont("Comic Sans MS");
-    text(content,80,400,400,800)
+    text(content,80,360,400,800)
   }
 } 
 
