@@ -147,7 +147,7 @@ function drawActive(x,y,title,number,alternative,atitle) {
     for (let j=0; j<7; j++){
       image(sugar,150+j*100,750,80,80)
     }
-    text("The suggested daily maximum of added sugar intake is 25 to 50 grams based on your daily energy intake.",80,880);
+    text("The suggested intake of added sugar is 25 to 50 grams per day based on your daily energy intake.",80,880);
     textSize(16);
     text("In the chart above, a sugar bag is equivalent to 5 grams of added sugar.",80,910);
 
@@ -159,42 +159,3 @@ function drawActive(x,y,title,number,alternative,atitle) {
   }
 } 
 
-
-
-
-// function mousePressed() {
-//   clicked(mouseX,mouseY)
-// }
-
-// function clicked(px,py) {
-//   fill(254,246,223)
-//   rect(0,100,windowWidth,200)
-//   if (px >125 && px<275 && py>125 && py<275 ) {
-//       // background(200);
-//       fill(red);
-//       ellipse(200,200,120);
-
-//       for (var i = 100; i<500; i=i+75) {
-//           image(img4,i,500,50,50)
-//       }
-//       textSize(36);
-//       fill(0);
-//       text("17 grams added suagr in a single serving of granolas",100,600);
-      
-
-
-//   } else if (px >325 && px<475 && py>125 && py<275) {
-//       // background(200);
-//       fill(red);
-//       ellipse(400,200,120);
-//       for (var i = 100; i<1000; i=i+75) {
-//           image(img4,i,500,50,50)
-//       textSize(36);
-//       fill(0);
-//       text("39 grams added suagr in a 12 oz Coca-Cola can",100,600);
-//       }
-
-//   } else if (px>100 && px<260 && py>700 && py<780) {
-//       background(200);
-//   }
-// }
